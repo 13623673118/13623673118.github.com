@@ -1,0 +1,7 @@
+button {
+  @apply focus:outline-none;
+
+  &.is-disabled {
+    @apply cursor-not-allowed bg-red-500;
+  }
+}

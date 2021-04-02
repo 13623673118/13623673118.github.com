@@ -1,29 +1,37 @@
 <template>
-  <div class="styleEditor" ref="container">
+  <div ref="container" class="styleEditor">
     <div class="code" v-html="codeInStyleTag"></div>
     <pre class="" v-html="highlightedCode"></pre>
   </div>
 </template>
 
-<script>
-import Prism from "prismjs";
-export default {
-  name: "Editor",
-  props: ["code"],
-  computed: {
-    highlightedCode() {
-      return Prism.highlight(this.code, Prism.languages.css);
-    },
-    codeInStyleTag() {
-      return `<style>${this.code}</style>`;
+<script lang="ts">
+import { computed, defineComponent, ref } from '@vue/runtime-core'
+import Prism from 'prismjs'
+export default defineComponent({
+  name: 'Editor',
+  props: {
+    code: {
+      type: String,
+      required: true
     }
   },
-  methods: {
-    goBottom() {
-      this.$refs.container.scrollTop = 100000;
+  setup(props) {
+    const highlightedCode = computed(() => Prism.highlight(props.code, Prism.languages.css, 'css'))
+    const codeInStyleTag = computed(() => `<style>${props.code}</style>`)
+    const container = ref()
+    const goBottom = () => {
+      container.value.scrollTop = 100000
+    }
+
+    return {
+      highlightedCode,
+      codeInStyleTag,
+      container,
+      goBottom
     }
   }
-};
+})
 </script>
 
 <style scoped>

@@ -180,7 +180,7 @@ html {
   transform: rotateX(10deg) translateZ(-200px) translateY(-50px);
 }
   `
-];
+]
 
 export const fullMarkdown = `
 赵晨敏
@@ -222,11 +222,11 @@ JS
 * [个人简历](https://lost-dream.github.io)
 * [个人博客](https://lost-dream.github.io/blog)
 * [前端知识点个人总结](https://lost-dream.github.io/course)
-`;
+`
 
 export const thanksMarkdown = `
 写在最后
 ----
 * hello, world!!
 
-`;
+`

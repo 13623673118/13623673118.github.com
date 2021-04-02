@@ -1,0 +1,17 @@
+# Editor
+.vscode
+.idea
+
+# Project
+*.md
+dist
+/public
+/src/assets/fonts
+
+# typescript
+*.d.ts
+# TODO windicss语法报错导致 lint-staged 无法通过,怎么解决????
+*.scss
+
+# Others
+node_modules
